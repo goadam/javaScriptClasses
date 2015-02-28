@@ -10,7 +10,7 @@ body {
 div#wrap{
 	margin:auto;
 	background:white;
-	width:1000px;
+	width:800px;
 	height:2000px;
 	
 }
@@ -21,4 +21,8 @@ header {
 
 #navigation a {
 	padding: 0px 0px 100px 0px;
+}
+
+article {
+	font-size: 125%;
 }
