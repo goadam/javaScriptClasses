@@ -10,7 +10,7 @@ body {
 div#wrap{
 	margin:auto;
 	background:white;
-	width:800px;
+	width:700px;
 	height:2000px;
 	
 }
@@ -25,4 +25,8 @@ header {
 
 article {
 	font-size: 125%;
+}
+
+pre {
+	background:#FFCC99;
 }

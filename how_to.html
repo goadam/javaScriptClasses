@@ -43,7 +43,131 @@
 		<section id="javaClasses">
 		  <h2>JavaScript Functions as Classes</h2>
 		  <article>
-		    <h3>h3</h3>
+		    JavaScript is an object-oriented language.  Which means JavaScript can be organized using object rather than a series of instructions and procedures.  An object is a
+			grouping of related data that can be similar to real world objects.  Usually an object will have variables and methods which manipulate those variables.<br>
+			<br>
+			Below is an example to create a basic class and object.  You first want to create a function with its data members defined.  Then create a variable and set
+			it equal to an instance of the function you just created by using the keyword new.  The "this" keyword refers to the instance of the object the function belongs to.
+			Whatever object called the function is what "this" refers to.  The variables "number1" and "number2" are initialised to the values shown but can be updated later on.
+			<pre>   
+	//Create the class
+	function myFunction() {
+		this.number1 = 5;
+		this.number2 = 7;
+		this.addNumbers = function() {
+			return this.number1 + this.number2;
+		}
+	}
+			
+			
+	//Create an instance of the class
+	var classInstance = new myFunction();
+			
+			</pre>
+			You can use the prototype object to add member functions at runtime.  Every object in JavaScript has a prototype and all objects inherit from their prototype.  This is a great 
+			feature JavaScript provides.  
+			
+			Why use prototype property? 
+			<pre>
+			function car(name) {
+				this.name = name;
+				this.price = 0;
+				this.set_price = function(price) {
+					this.price = price;
+				}
+			}
+
+			</pre>
+			In the example above the object car has two properties, name and price, and a set price method that will change the price.  This set price method will be created 
+			every time a new car is created which may or may not be what you want.  Creating the set name method every time will increase the overhead of your program.  
+			Instead you can add the set price method to the prototype so it will not have to be recreated every time a new car is made.  This will make object creation 
+			faster and improve the performance of your web page.
+			
+			<pre>
+			function car(name) {
+				this.name = name;
+				this.price = 0;
+			}
+			
+			car.prototype.set_price = function(price) {
+				this.price = price;
+			}
+
+			</pre>
+			public and private member functions.
+			Public data members can be access directly using the dot operator.  When you create a data member using the this keyword that makes the data member public.
+			Public data members are specific to each object instance.
+			
+			<pre>
+			function Person () {
+				this.name = 'null';
+			}
+			
+			var customer = new Person();
+			customer.name = 'Larry';
+			</pre>
+			Data members can also be accessed using square brackets and quotes.  This is useful when you have key value pairs.
+			<pre>
+			function Person () {
+				this.name = 'null';
+			}
+			
+			var customer = new Person();
+
+			var key = "name";
+			customer[key];
+			
+			</pre>
+			
+			<pre>
+			Private data members.
+			</pre>
+			
+			static members
+			<pre>
+			Static member variables are shared by all instances of the class.  There is only one copy of the static variable that is referenced by the class instances.  
+			
+			</pre>
+			
+			<pre>
+			classInstance.prototype.
+			</pre>
+			
+			JavaScript does not use the classical inheritance model instead uses a prototyped inheritance model.  This will allow you to create new objects by coping other objects 
+			and adding new data and method.
+			
+			pros - modular easier to develop and colaborate with team members. they can use your classes for there development. reuse class.
+			
+			prototype property - during runtime, object inheritance.
+			childClass.prototype = new ParentClass();
+			access those methods - 
+				var instance1 = new Childclass();
+				instance1.parentclass;
+				
+			override method
+				ChildClass.prototype.parentmethod1 = function parentmethod1(){}
+				
+			
+			
+			
+			public members
+			function Employee(firstname, lastname) {
+				//public fields
+				this.firstname = firstname;
+				this.lastname = lastname;
+				
+				//private fields
+				var privateFullName;
+				
+				//private function
+				inside constructor function
+				var privategetFullName = function() {
+					
+				}
+				
+			}
+			private members
+			
 		  </article>
 		<section>
 	  </main>
