@@ -24,7 +24,8 @@
 		  <h2>About this guide</h2>
 		  <article>
 		    This guide was designed to inform the reader about JavaScript functions and how those functions can be used to create classes within your 
-			JavaScript code.  Creating classes in JavaScript will allow for greater flexibility, maintainability and scalability in your project.  
+			JavaScript code.  Creating classes in JavaScript will allow for greater flexibility, maintainability and scalability in your project. Technically
+			JavaScript has no class key word and therefore has no classes.  
 		  </article>
 		</section>
 	    <section id="overview">
@@ -157,24 +158,62 @@
 			</pre>
 		   </article>
 		 </section>
+		 <section>
+		   <h2>Inheritance</h2>
+		   <article>
+		   Inheritance is when an object is made by coping the properties of another object.  In JavaScript this is done using the prototype property.   
+		   
+		   <pre>
+		   //parent class
+		   function Parent(name) {
+				this.name = name;
+		   }
+		   
+		   function Child() {
+				this.value = 10;
+		   }
+		   
+		   Child.prototype = new Parent();
+		   
+		   var instance1 = new Child();
+		   
+		   //the child class now has access to the name from parent.
+		   instance1.name;
+		   </pre>
+		   
+		   Because the Child object is a Parent object you can override values and methods from the Parent class.
+			<pre>
+	//parent class
+	function Parent(name) {
+		this.name = name;
+		this.value = 5;
+		this.parentMethod1 = function (value) {
+			document.write("Parent");
+		}
+	}
+		   
+	function Child() {
+		this.value = 10;
+	}
+		   
+	Child.prototype = new Parent();
+		   
+	var instance1 = new Child();
+		   
+	ChildClass.prototype.parentMethod1 = function parentmethod1(){
+		document.write("Child");
+	}
+			</pre>
+		   
+		   </article>
+		 </section>
 		
 			
 			JavaScript does not use the classical inheritance model instead uses a prototyped inheritance model.  This will allow you to create new objects by coping other objects 
 			and adding new data and method.
 			
 			pros - modular easier to develop and colaborate with team members. they can use your classes for there development. reuse class.
-			
-			prototype property - during runtime, object inheritance.
-			childClass.prototype = new ParentClass();
-			access those methods - 
-				var instance1 = new Childclass();
-				instance1.parentclass;
-				
-			override method
-				ChildClass.prototype.parentmethod1 = function parentmethod1(){}
-				
-			
-			
+		
 			
 			public members
 			function Employee(firstname, lastname) {
