@@ -37,7 +37,8 @@ header {
 
 article {
 	font-size: 125%;
-	background:white
+	background:white;
+	text-align:justify;
 }
 
 pre {

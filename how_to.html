@@ -8,16 +8,18 @@
 	<body>
 	  <div id="wrap">
 	    <header>
-		  <h1>Using Javascipt Functions as classes.</h1> 
+		  <h1>Using Javascipt Functions as Classes</h1> 
 		</header>
 		<nav id="navigation">
 	    <p>
 		  <a href="how_to.html#about">About This Guide</a><br>
 		  <a href="how_to.html#overview">JavaScript Overview</a><br>
-		  <a href="how_to.html#javascriptFuncions">JavaScript Functions</a><br>
-		  <a href="how_to.html#javaClasses">JavaScript Function as Classes</a><br>
+		  <a href="how_to.html#javascriptFuncions">Functions</a><br>
+		  <a href="how_to.html#javaClasses">Function as Classes</a><br>
 		  <a href="how_to.html#javaPrototype">Prototype</a><br>
+		  <a href="how_to.html#JavaPublicPrivate">Public and Private Members</a><br>
 		  <a href="how_to.html#staticData">Static Members</a><br>
+		  <a href="how_to.html#inheritance">Inheritance</a><br>
 	    </p>
 	  </nav>
 	  <main id="mainContent">
@@ -43,16 +45,27 @@
 		  <h2>JavaScript Functions</h2>
 		  <article>
 		    Functions are a very useful tool in computer programming.  They allow the programmer to encapsulate a task into a block of code that can be called multiple times 
-			throughout the program.  
+			throughout the program.  Using functions can take a complex problem and break it up into a series of smaller simpler steps.  In JavaScript you can create a function
+			by using the keyword "function".
+			<pre>
+	function myFunction(value) {
+		return value * 10;
+	}
+	
+	//call the function
+	myFunction(4);
+			</pre>
 		  </article>
 		</section>
 		<section id="javaClasses">
 		  <h2>JavaScript Classes</h2>
 		  <article>
 		    JavaScript is an object-oriented language.  Which means JavaScript can be organized using object rather than a series of instructions and procedures.  An object is a
-			grouping of related data that can be similar to real world objects.  Usually an object will have variables and methods which manipulate those variables.<br>
+			grouping of related data that can be similar to real world objects.  Usually an object will have variables and methods which manipulate those variables.
+			Using classes/objects will modularize you program allowing you to collaborate with you team/developers and allow you to reuse aspects of you program.
 			<br>
-			Below is an example to create a basic class and object.  You first want to create a function with its data members defined.  Then create a variable and set
+			<br>
+			Below is an example to create a basic class.  You first want to create a function with its data members defined.  Then create a variable and set
 			it equal to an instance of the function you just created by using the keyword new.  The "this" keyword refers to the instance of the object the function belongs to.
 			Whatever object called the function is what "this" refers to.  The variables "number1" and "number2" are initialised to the values shown but can be updated later on.
 			<pre>   
@@ -76,15 +89,16 @@
 		  <h2>JavaScript Prototype</h2>
 		  <article>
 		  <pre>
-			function car(name) {
-				this.name = name;
-				this.price = 0;
-				this.set_price = function(price) {
-					this.price = price;
-				}
-			}
-
+		  
+	function car(name) {
+		this.name = name;
+		this.price = 0;
+		this.set_price = function(price) {
+			this.price = price;
+		}
+	}
 			</pre>
+			
 			A prototype is an object. Every object in JavaScript has a prototype and all objects inherit their properties from their prototype.  This is a great 
 			feature JavaScript provides.  You can use the prototype object to add member functions at runtime.  In the example above the object car has two properties, 
 			name and price, and a set price method that will change the price.  This set price method will be created every time a new car is created which may or may 
@@ -92,51 +106,52 @@
 			prototype so it will not have to be recreated every time a new car is made.  This will make object creation faster and improve the performance of your web page.
 			
 			<pre>
-			function car(name) {
-				this.name = name;
-				this.price = 0;
-			}
+	function car(name) {
+		this.name = name;
+		this.price = 0;
+	}
 			
-			car.prototype.set_price = function(price) {
-				this.price = price;
-			}
+	car.prototype.set_price = function(price) {
+		this.price = price;
+	}
 			</pre>
 		  </article>
 		</section>
 		<section id="JavaPublicPrivate">
 		  <h2>Public and Private Members</h2>
 		  <article>
-			Public data members can be access directly using the dot operator.  When you create a data member using the this keyword that makes the data member public.
+			Public data members can be access directly using the dot operator.  When you create a data member using the "this" keyword it makes the data member public.
 			Public data members are specific to each object instance.
 			<pre>
-			function Person () {
-				this.name = 'null';
-			}
+	function Person () {
+		this.name = 'null';
+	}
 			
-			var customer = new Person();
-			customer.name = 'Larry';
+	var customer = new Person();
+	customer.name = 'Larry';
 			</pre>
 			Data members can also be accessed using square brackets and quotes.  This is useful when you have key value pairs.
 			<pre>
-			function Person () {
-				this.name = 'null';
-			}
+	function Person () {
+		this.name = 'null';
+	}
 			
-			var customer = new Person();
+	var customer = new Person();
 
-			var key = "name";
-			customer[key];
+	var key = "name";
+	customer[key];
 			
 			</pre>
 		  </article>
 		  <article>
 			Private data members are only accessible inside of the function or object.  Prototyped defined methods also do not have access.  To create a private
-			data member simply declare a variable with the var keyword.  The scope of the variable will now only be within the object.
+			data member simply declare a variable with the "var" keyword.  The scope of the variable will now only be within the object.  The only function that can 
+			access it is a function located within the object's constructor.  
 			<pre>
-			function myFunction () {
-				var privateMember = 10; // private
-				this.publicMember = 1; // public
-			}
+	function myFunction () {
+		var privateMember = 10; // private
+		this.publicMember = 1; // public
+	}
 			</pre>
 		  </article>
 		 </section>
@@ -146,26 +161,26 @@
 			Static member variables are shared by all instances of the class.  There is only one copy of the static variables that is referenced by each class instance.  
 			This is useful to keep track of how many instances there are of a certain class or for mathematical constants.
 			<pre>
-			function Car() {
-				if(typeof Car.total == 'undefined') {
-					Car.total = 0;
-				}
-				++Car.total;
-			}
+	function Car() {
+	    if(typeof Car.total == 'undefined') {
+               Car.total = 0;
+	    }
+	    ++Car.total;
+	}
 			
-			function Circle(radius) {
-				Circle.PI = 3.14;
-				this.radius = radius;
-			}
+	function Circle(radius) {
+		Circle.PI = 3.14;
+		this.radius = radius;
+	}
 			</pre>
 		   </article>
 		 </section>
-		 <section>
+		 <section id="inheritance">
 		   <h2>Inheritance</h2>
 		   <article>
 		   Inheritance is when an object is made by coping the properties of another object.  JavaScript does not use the classical inheritance 
-		   model instead uses a prototyped inheritance model.  This will allow you to create new objects by coping other objects and adding 
-		   new data and method.   
+		   model instead uses a prototyped inheritance model.  This will allow you to create new objects by coping an existing object into the 
+		   new object prototype.  
 		   
 		   <pre>
 		   //parent class
@@ -208,36 +223,8 @@
 		document.write("Child");
 	}
 			</pre>
-		   
-		   </article>
-		 </section>
-		
-			
-			
-			
-			pros - modular easier to develop and colaborate with team members. they can use your classes for there development. reuse class.
-		
-			
-			public members
-			function Employee(firstname, lastname) {
-				//public fields
-				this.firstname = firstname;
-				this.lastname = lastname;
-				
-				//private fields
-				var privateFullName;
-				
-				//private function
-				inside constructor function
-				var privategetFullName = function() {
-					
-				}
-				
-			}
-			private members
-			
 		  </article>
-		<section>
+		</section>
 	  </main>
 	  </div>
 	</body>
