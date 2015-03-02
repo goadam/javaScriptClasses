@@ -12,7 +12,8 @@
 		</header>
 		<nav id="navigation">
 	    <p>
-		  <a href="how_to.html#overview">Overview</a><br>
+		  <a href="how_to.html#about">About This Guide</a><br>
+		  <a href="how_to.html#overview">JavaScript Overview</a><br>
 		  <a href="how_to.html#javascriptFuncions">JavaScript Functions</a><br>
 		  <a href="how_to.html#javaClasses">JavaScript Function as Classes</a><br>
 		  <a href="how_to.html#javaPrototype">Prototype</a><br>
@@ -20,12 +21,14 @@
 	    </p>
 	  </nav>
 	  <main id="mainContent">
-	    <section id="overview">
+	    <section id="about">
 		  <h2>About this guide</h2>
 		  <article>
 		    This guide was designed to inform the reader about JavaScript functions and how those functions can be used to create classes within your 
 			JavaScript code.  Creating classes in JavaScript will allow for greater flexibility, maintainability and scalability in your project. Technically
-			JavaScript has no class key word and therefore has no classes.  
+			JavaScript has no class key word and therefore has no classes.  JavaScript is a prototyped-based language which differs from a class-based 
+			language.  But it is possible to use JavaScript like a class-based language which I will show in this guide and therefore will be using the class 
+			keyword to describe certain topics.
 		  </article>
 		</section>
 	    <section id="overview">
@@ -97,9 +100,8 @@
 			car.prototype.set_price = function(price) {
 				this.price = price;
 			}
-
 			</pre>
-			</article>
+		  </article>
 		</section>
 		<section id="JavaPublicPrivate">
 		  <h2>Public and Private Members</h2>
@@ -161,7 +163,9 @@
 		 <section>
 		   <h2>Inheritance</h2>
 		   <article>
-		   Inheritance is when an object is made by coping the properties of another object.  In JavaScript this is done using the prototype property.   
+		   Inheritance is when an object is made by coping the properties of another object.  JavaScript does not use the classical inheritance 
+		   model instead uses a prototyped inheritance model.  This will allow you to create new objects by coping other objects and adding 
+		   new data and method.   
 		   
 		   <pre>
 		   //parent class
@@ -209,8 +213,7 @@
 		 </section>
 		
 			
-			JavaScript does not use the classical inheritance model instead uses a prototyped inheritance model.  This will allow you to create new objects by coping other objects 
-			and adding new data and method.
+			
 			
 			pros - modular easier to develop and colaborate with team members. they can use your classes for there development. reuse class.
 		
